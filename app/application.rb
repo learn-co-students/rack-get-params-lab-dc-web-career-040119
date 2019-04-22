@@ -7,15 +7,15 @@ class Application
     resp = Rack::Response.new
     req = Rack::Request.new(env)
 
-    if req.path.match(/items/)
+    if req.path.match(/items/)    #PATH
       @@items.each do |item|
         resp.write "#{item}\n"
       end
-    elsif req.path.match(/search/)
+    elsif req.path.match(/search/) #PATH
       search_term = req.params["q"]
       resp.write handle_search(search_term)
     elsif 
-      req.path.match(/cart/)
+      req.path.match(/cart/) #PATH
       if
         @@cart.empty?
           resp.write "Your cart is empty"
@@ -26,7 +26,7 @@ class Application
       end
     end
      elsif
-      req.path.match(/add/) #adds a new route
+      req.path.match(/add/) #adds a new route #PATH
       search = req.params["item"] #params serach for a key work "item" |parameter| 
       if 
         @@items.include?(search)#validation  true or false.
