@@ -26,12 +26,12 @@ class Application
       end
     end
      elsif
-      req.path.match(/add/)
-      search = req.params["item"]
+      req.path.match(/add/) #adds a new route
+      search = req.params["item"] #params serach for a key work "item" |parameter| 
       if 
-        @@items.include?(search)
-         @@cart << search
-        resp.write "added #{search}"
+        @@items.include?(search)#validation  true or false.
+         @@cart << search #if the key enteris found inside @@items array. shovel <<  into @@cart
+        resp.write "added #{search}" #puts
     else 
       resp.write "We don't have that item"
     end
